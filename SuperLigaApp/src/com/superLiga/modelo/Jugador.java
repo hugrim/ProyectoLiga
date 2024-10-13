@@ -8,21 +8,24 @@ package com.superLiga.modelo;
  *
  */
 public class Jugador extends Persona{
-
+	
+	private int idJugador;
 	private int categoria;
 	private String equipoAsignado;
 	private int nroCamiseta;
-	
+
 	/**
-	 * @param categoria
-	 * @param equipoAsignado
-	 * @param nroCamiseta
+	 * @return the idJugador
 	 */
-	public Jugador(int categoria, String equipoAsignado, int nroCamiseta) {
-		super();
-		this.categoria = categoria;
-		this.equipoAsignado = equipoAsignado;
-		this.nroCamiseta = nroCamiseta;
+	public int getIdJugador() {
+		return idJugador;
+	}
+
+	/**
+	 * @param idJugador the idJugador to set
+	 */
+	public void setIdJugador(int idJugador) {
+		this.idJugador = idJugador;
 	}
 
 	/**
@@ -66,5 +69,20 @@ public class Jugador extends Persona{
 	public void setNroCamiseta(int nroCamiseta) {
 		this.nroCamiseta = nroCamiseta;
 	}
+	
+	/**
+	 * @param idJugador
+	 * @param categoria
+	 * @param equipoAsignado
+	 * @param nroCamiseta
+	 */
+	public Jugador(int idJugador, int categoria, String equipoAsignado, int nroCamiseta) {
+		super();
+		this.idJugador = idJugador;
+		this.categoria = categoria;
+		this.equipoAsignado = equipoAsignado;
+		this.nroCamiseta = nroCamiseta;
+	}
+
 	
 }

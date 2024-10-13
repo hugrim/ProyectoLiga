@@ -3,6 +3,8 @@
  */
 package com.superLiga.modelo;
 
+import java.util.List;
+
 /**
  * @author Hugo Grimanis 
  * Legajo: VINF013133 
@@ -11,20 +13,37 @@ package com.superLiga.modelo;
  */
 public class Profesor extends Persona{
 
+	private int idProfesor;
 	private int categoriaDirigida;
-	private String equipoAsignado;
+	private List<Equipo> equipoAsignado;
 	private String directorTecnicoFavorito;
 	
 	/**
+	 * @param idProfesor
 	 * @param categoriaDirigida
 	 * @param equipoAsignado
 	 * @param directorTecnicoFavorito
 	 */
-	public Profesor(int categoriaDirigida, String equipoAsignado, String directorTecnicoFavorito) {
+	public Profesor(int idProfesor, int categoriaDirigida, List<Equipo> equipoAsignado,
+			String directorTecnicoFavorito) {
 		super();
+		this.idProfesor = idProfesor;
 		this.categoriaDirigida = categoriaDirigida;
 		this.equipoAsignado = equipoAsignado;
 		this.directorTecnicoFavorito = directorTecnicoFavorito;
+	}
+	
+	/**
+	 * @return the idProfesor
+	 */
+	public int getIdProfesor() {
+		return idProfesor;
+	}
+	/**
+	 * @param idProfesor the idProfesor to set
+	 */
+	public void setIdProfesor(int idProfesor) {
+		this.idProfesor = idProfesor;
 	}
 	/**
 	 * @return the categoriaDirigida
@@ -41,13 +60,13 @@ public class Profesor extends Persona{
 	/**
 	 * @return the equipoAsignado
 	 */
-	public String getEquipoAsignado() {
+	public List<Equipo> getEquipoAsignado() {
 		return equipoAsignado;
 	}
 	/**
 	 * @param equipoAsignado the equipoAsignado to set
 	 */
-	public void setEquipoAsignado(String equipoAsignado) {
+	public void setEquipoAsignado(List<Equipo> equipoAsignado) {
 		this.equipoAsignado = equipoAsignado;
 	}
 	/**
@@ -62,4 +81,6 @@ public class Profesor extends Persona{
 	public void setDirectorTecnicoFavorito(String directorTecnicoFavorito) {
 		this.directorTecnicoFavorito = directorTecnicoFavorito;
 	}
+	
+
 }
