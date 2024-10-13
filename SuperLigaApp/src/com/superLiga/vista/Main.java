@@ -67,8 +67,8 @@ public class Main {
 			            salir = true;
 			            break;
 			        default:
-			            System.out.println("Opcion invalida.Debe seleccionar alguna de las opciones validas \n");
-			            System.out.println("Por favor, intente de nuevo");
+			            System.out.println("Opcion invalida. Debe seleccionar alguna de las opciones validas");
+			            System.out.println("Por favor, intente de nuevo \n");
 			            break;
 			    }
 	        } while  (!salir);
@@ -79,19 +79,27 @@ public class Main {
 
 	    public static int mostrarSubMenu(Scanner scanner, String opcionMenu){
 	        String opcion;
-	        System.out.println("\n\033[1m" + "Sub Menu " + opcionMenu + " :" + "\033[0m\n" +
-	                "1: Agregar " + opcionMenu + " :" +
-	                "2: Editar  " + opcionMenu + " :" +
-	                "3: Eiminar " + opcionMenu + " :" +
-	                "4: Consultar " + opcionMenu + " :" +
-	                "5: Volver al menú principal");
+	        System.out.println("\n\033[1m" + "Sub Menu " + opcionMenu + " " + "\033[0m\n" +
+	                "1: Agregar " + opcionMenu + " : \n" +
+	                "2: Editar  " + opcionMenu + " : \n" +
+	                "3: Eliminar " + opcionMenu + " : \n" +
+	                "4: Consultar " + opcionMenu + " : \n" +
+	                "5: Volver al menú principal \n");
 
 	        System.out.print("\033[1m" + "> " + "\033[0m");
 	        opcion = scanner.nextLine();
-	        return Integer.parseInt(opcion);
+	        return ( isNumerico(opcion) ? Integer.parseInt(opcion) : -1);  
 	    }
 
-	    public static void subMenu(Scanner scanner, String opcionMenu) {
+	    /**
+		 * @param opcion
+		 * @return
+		 */
+		private static boolean isNumerico(String opcion) {
+			return opcion != null && opcion.matches("[0-9.]+");
+		}
+
+		public static void subMenu(Scanner scanner, String opcionMenu) {
 
 	        int opcion;
 	        
@@ -115,12 +123,15 @@ public class Main {
 		                    System.out.println("Consultar Jugador");
 		                    // Lógica para consultar jugador
 		                    break;
+		                case 5:
+		                    System.out.println("Volviendo al menú principal... \n \n");
+		                    break;
 		                default:
 		                    System.out.println("Opción inválida. Intente de nuevo.");
 		            }
 		        } while(opcion != 5);
 			}
-	    	//System.out.println("Volviendo al menú principal...");
+	    	//System.out.println("Volviendo al menú principal... \n");
 	    	else if(opcionMenu.equals("Equipo")) {
 		        do {
 		            opcion = mostrarSubMenu(scanner,opcionMenu);
@@ -140,6 +151,9 @@ public class Main {
 		                case 4:
 		                    System.out.println("Consultar Equipo");
 		                    // Lógica para consultar equipo
+		                    break;
+		                case 5:
+		                    System.out.println("Volviendo al menú principal... \n");
 		                    break;
 		                default:
 		                    System.out.println("Opción inválida. Intente de nuevo.");
@@ -166,6 +180,9 @@ public class Main {
 		                    System.out.println("Consultar partido");
 		                    // Lógica para consultar equipo
 		                    break;
+		                case 5:
+		                    System.out.println("Volviendo al menú principal... \n");
+		                    break;
 		                default:
 		                    System.out.println("Opción inválida. Intente de nuevo.");
 		            }
@@ -190,6 +207,9 @@ public class Main {
 		                case 4:
 		                    System.out.println("Consultar Categoria");
 		                    // Lógica para consultar categoría
+		                    break;
+		                case 5:
+		                    System.out.println("Volviendo al menú principal... \n");
 		                    break;
 		                default:
 		                    System.out.println("Opción inválida. Intente de nuevo.");
@@ -216,6 +236,9 @@ public class Main {
 		                    System.out.println("Consultar LIGA");
 		                    // Lógica para consultar categoría
 		                    break;
+		                case 5:
+		                    System.out.println("Volviendo al menú principal... \n");
+		                    break;
 		                default:
 		                    System.out.println("Opción inválida. Intente de nuevo.");
 		            }
@@ -240,6 +263,9 @@ public class Main {
 			                case 4:
 			                    System.out.println("Consultar FX");
 			                    // Lógica para consultar categoría
+			                    break;
+			                case 5:
+			                    System.out.println("Volviendo al menú principal... \n");
 			                    break;
 		                default:
 		                    System.out.println("Opción inválida. Intente de nuevo.");
@@ -266,6 +292,9 @@ public class Main {
 		                    System.out.println("Consultar Profesor");
 		                    // Lógica para consultar profesor
 		                    break;
+		                case 5:
+		                    System.out.println("Volviendo al menú principal... \n");
+		                    break;
 		                default:
 		                    System.out.println("Opción inválida. Intente de nuevo.");
 		            }
@@ -291,12 +320,15 @@ public class Main {
 		                    System.out.println("Consultar CO");
 		                    // Lógica para consultar profesor
 		                    break;
+		                case 5:
+		                    System.out.println("Volviendo al menú principal... \n");
+		                    break;
 		                default:
 		                    System.out.println("Opción inválida. Intente de nuevo.");
 		            }
 		        } while(opcion != 5);
 			}else {
-				System.out.println("Volviendo al menú principal...");
+				System.out.println("...");
 			}
 	    }
 	}
