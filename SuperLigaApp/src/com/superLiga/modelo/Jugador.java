@@ -4,7 +4,9 @@
 package com.superLiga.modelo;
 
 /**
- * @author qwert
+ * @author Hugo Grimanis 
+ * Legajo: VINF013133 
+ * DNI: 32.703.963
  *
  */
 public class Jugador extends Persona{
@@ -82,6 +84,13 @@ public class Jugador extends Persona{
 		this.categoria = categoria;
 		this.equipoAsignado = equipoAsignado;
 		this.nroCamiseta = nroCamiseta;
+	}
+
+	/**
+	 * 
+	 */
+	public Jugador() {
+		// TODO Auto-generated constructor stub
 	}
 
 	
