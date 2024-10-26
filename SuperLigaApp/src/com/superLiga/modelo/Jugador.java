@@ -3,6 +3,8 @@
  */
 package com.superLiga.modelo;
 
+import java.util.Date;
+
 /**
  * @author Hugo Grimanis 
  * Legajo: VINF013133 
@@ -71,27 +73,34 @@ public class Jugador extends Persona{
 	public void setNroCamiseta(int nroCamiseta) {
 		this.nroCamiseta = nroCamiseta;
 	}
-	
+
 	/**
-	 * @param idJugador
+	 * @param apellidoNombre
+	 * @param fechaNacimiento
+	 * @param dni
+	 * @param sexo
+	 * @param edad
+	 * @param domicilio
+	 * @param provincia
+	 * @param codigoPostal
+	 * @param email
+	 * @param telefono
+	 * @param hinchaClub
 	 * @param categoria
 	 * @param equipoAsignado
 	 * @param nroCamiseta
 	 */
-	public Jugador(int idJugador, int categoria, String equipoAsignado, int nroCamiseta) {
-		super();
-		this.idJugador = idJugador;
+	public Jugador(String apellidoNombre, Date fechaNacimiento, int dni, char sexo, int edad, String domicilio,
+			Provincia provincia, String codigoPostal, String email, long telefono, String hinchaClub, int categoria,
+			String equipoAsignado, int nroCamiseta) {
+		super(apellidoNombre, fechaNacimiento, dni, sexo, edad, domicilio, provincia, codigoPostal, email, telefono,
+				hinchaClub);
 		this.categoria = categoria;
 		this.equipoAsignado = equipoAsignado;
 		this.nroCamiseta = nroCamiseta;
 	}
+	
 
-	/**
-	 * 
-	 */
-	public Jugador() {
-		// TODO Auto-generated constructor stub
-	}
 
 	
 }

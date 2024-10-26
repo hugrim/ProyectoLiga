@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.superLiga.modelo.Jugador;
 import com.superLiga.modelo.Service.ServiceGenerico;
+import com.superLiga.vista.LogicaInputOutput;
 
 /**
  * @author Hugo Grimanis 
@@ -19,8 +20,8 @@ public class JugadorServiceImpl implements ServiceGenerico<Jugador>{
 	
 	@Override
 	public void agregar(Jugador jugador) {
-		// TODO Auto-generated method stub
-		
+		Jugador nuevoJugador = LogicaInputOutput.obtenerDatosJugador();
+		System.out.println("El jugador " + nuevoJugador.getApellidoNombre()  + "ha sido agregado al Club");
 	}
 
 	@Override

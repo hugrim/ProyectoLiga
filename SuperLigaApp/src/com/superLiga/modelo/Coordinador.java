@@ -3,6 +3,7 @@
  */
 package com.superLiga.modelo;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,22 +18,33 @@ public class Coordinador extends Persona{
 	private String directorTecnicoFavorito;
 	private List<Profesor> listaProfesores;
 	private int cantidadProfesoresACargo;
-	
 	/**
-	 * @param idCoordinador
+	 * @param apellidoNombre
+	 * @param fechaNacimiento
+	 * @param dni
+	 * @param sexo
+	 * @param edad
+	 * @param domicilio
+	 * @param provincia
+	 * @param codigoPostal
+	 * @param email
+	 * @param telefono
+	 * @param hinchaClub
 	 * @param directorTecnicoFavorito
 	 * @param listaProfesores
 	 * @param cantidadProfesoresACargo
 	 */
-	public Coordinador(int idCoordinador, String directorTecnicoFavorito, List<Profesor> listaProfesores,
-			int cantidadProfesoresACargo) {
-		super();
-		this.idCoordinador = idCoordinador;
+	public Coordinador(String apellidoNombre, Date fechaNacimiento, int dni, char sexo, int edad, String domicilio,
+			Provincia provincia, String codigoPostal, String email, long telefono, String hinchaClub,
+			String directorTecnicoFavorito, List<Profesor> listaProfesores, int cantidadProfesoresACargo) {
+		super(apellidoNombre, fechaNacimiento, dni, sexo, edad, domicilio, provincia, codigoPostal, email, telefono,
+				hinchaClub);
 		this.directorTecnicoFavorito = directorTecnicoFavorito;
 		this.listaProfesores = listaProfesores;
 		this.cantidadProfesoresACargo = cantidadProfesoresACargo;
 	}
-	
+
+
 	/**
 	 * @return the idCoordinador
 	 */

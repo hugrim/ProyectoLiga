@@ -157,5 +157,14 @@ public class Equipo {
 		this.cantidadPartidosPerdidos = cantidadPartidosPerdidos;
 		this.diferenciaGol = diferenciaGol;
 	}
+
+	/**
+	 * @param nombreEquipo2
+	 * @param categoriaEquipo2
+	 */
+	public Equipo(String nombreEquipo, int categoriaEquipo) {
+			this.nombreEquipo = nombreEquipo;
+			this.categoriaEquipo = categoriaEquipo;
+	}
 	
 }

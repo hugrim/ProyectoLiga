@@ -4,8 +4,12 @@
 package com.superLiga.vista;
 
 
-import java.lang.reflect.InvocationTargetException;
+import java.util.Locale.Category;
 import java.util.Scanner;
+
+import com.superLiga.modelo.Categoria;
+import com.superLiga.modelo.Service.ServiceGenerico;
+import com.superLiga.modelo.ServiceImpl.CategoriaServiceimpl;
 
 
 /**
@@ -191,9 +195,12 @@ public class Main {
 	    	else if(opcionMenu.equals("Categoria")) {
 		        do {
 		            opcion = mostrarSubMenu(scanner,opcionMenu);
+		            CategoriaServiceimpl categoriaServiceImpl = new CategoriaServiceimpl();
 		            switch (opcion) {
 		                case 1:
 		                    System.out.println("Agregar Categoria");
+		                    Categoria categoria = new Categoria();
+		                    categoriaServiceImpl.agregar(categoria);
 		                    // Lógica para agregar categoría
 		                    break;
 		                case 2:

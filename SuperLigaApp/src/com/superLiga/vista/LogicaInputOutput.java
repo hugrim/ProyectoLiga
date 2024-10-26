@@ -38,45 +38,41 @@ public class LogicaInputOutput {
 	  */
 	 public static Jugador obtenerDatosJugador() {
 		
-		 Jugador jugador = new Jugador();
+		 Jugador jugador = (Jugador) obtenerDatosPersona();
 		 
-		 System.out.print("Apellido y Nombre: ");
-	        jugador.setApellidoNombre(scanner.nextLine());
-
-	        System.out.print("Fecha de Nacimiento (yyyy-mm-dd): ");
-	        jugador.setFechaNacimiento(parseDate(scanner.nextLine()));
-
-	        System.out.print("DNI: ");
-	        jugador.setDni(scanner.nextInt());
-
-	        System.out.print("Sexo (M/F): ");
-	        jugador.setSexo(scanner.next().charAt(0));
-	        scanner.nextLine(); // Limpiar el buffer
-
-	        System.out.print("Direccion: ");
-	        jugador.setDomicilio(scanner.nextLine());
-
-	        System.out.print("Provincia: ");
-	        
-	        String provincia = scanner.nextLine().toUpperCase();
-	        
-	        // Utilizando el valueOf() del Enum , convierto el valor ingresado por teclado a un valor del Enum, realizando la comparacion
-	        //Luego lo inserto en el objeto del tipo Jugador
-	        //En el caso que el valor no sea valido, se captura el error (con una excepcion IllegalArgumentException) y se muestra un mensaje al usuario
-	        try {
-	        	jugador.setProvincia(Provincia.valueOf(provincia));				
-			} catch (IllegalArgumentException  e) {
-				System.out.println("Valor ingresado de Provincia no es válido.");
-			}
-
-	        System.out.print("Codigo Postal: ");
-	        jugador.setCodigoPostal(scanner.nextLine());
-
-	        System.out.print("Telefono: ");
-	        jugador.setTelefono(scanner.nextLong());
-
-	        System.out.print("Email: ");
-	        jugador.setEmail(scanner.next());
+			/*
+			 * System.out.print("Apellido y Nombre: ");
+			 * jugador.setApellidoNombre(scanner.nextLine());
+			 * 
+			 * System.out.print("Fecha de Nacimiento (yyyy-mm-dd): ");
+			 * jugador.setFechaNacimiento(parseDate(scanner.nextLine()));
+			 * 
+			 * System.out.print("DNI: "); jugador.setDni(scanner.nextInt());
+			 * 
+			 * System.out.print("Sexo (M/F): "); jugador.setSexo(scanner.next().charAt(0));
+			 * scanner.nextLine(); // Limpiar el buffer
+			 * 
+			 * System.out.print("Direccion: "); jugador.setDomicilio(scanner.nextLine());
+			 * 
+			 * System.out.print("Provincia: ");
+			 * 
+			 * String provincia = scanner.nextLine().toUpperCase();
+			 * 
+			 * // Utilizando el valueOf() del Enum , convierto el valor ingresado por
+			 * teclado a un valor del Enum, realizando la comparacion //Luego lo inserto en
+			 * el objeto del tipo Jugador //En el caso que el valor no sea valido, se
+			 * captura el error (con una excepcion IllegalArgumentException) y se muestra un
+			 * mensaje al usuario try { jugador.setProvincia(Provincia.valueOf(provincia));
+			 * } catch (IllegalArgumentException e) {
+			 * System.out.println("Valor ingresado de Provincia no es válido."); }
+			 * 
+			 * System.out.print("Codigo Postal: ");
+			 * jugador.setCodigoPostal(scanner.nextLine());
+			 * 
+			 * System.out.print("Telefono: "); jugador.setTelefono(scanner.nextLong());
+			 * 
+			 * System.out.print("Email: "); jugador.setEmail(scanner.next());
+			 */
 
 	        System.out.print("Categoria Jugador: ");
 	        jugador.setCategoria(scanner.nextInt());
@@ -87,9 +83,6 @@ public class LogicaInputOutput {
 	        System.out.print("Numero de Camiseta: ");
 	        jugador.setNroCamiseta(scanner.nextInt());
 
-	        scanner.nextLine(); // Limpiar el buffer
-	        System.out.print("Hincha del Club: ");
-	        jugador.setHinchaClub(scanner.nextLine());
 		 
 		return jugador;		 
 	 }
@@ -129,10 +122,9 @@ public class LogicaInputOutput {
 	        System.out.print("Ingrese la cantidad de goles del equipo visitante: ");
 	        int cantidadGolesEquipoVisitante = scanner.nextInt();
 
-	        int resultadoPartido = cantidadGolesEquipoLocal - cantidadGolesEquipoVisitante;
-
-	        return new Partido(equipoLocal, equipoVisitante);
+	        return new Partido(equipoLocal, equipoVisitante, categoria, fechaPartido, horaPartido, cantidadGolesEquipoLocal, cantidadGolesEquipoVisitante);
 	    }
+	    
 
 	    // Captura de datos para Categoria
 	    public static Categoria obtenerDatosCategoria() {
@@ -144,13 +136,12 @@ public class LogicaInputOutput {
 
 	    // Captura de datos para Coordinador
 	    public static Coordinador obtenerDatosCoordinador() {
+	    	
+	    	Coordinador coordinador = (Coordinador) obtenerDatosPersona();
+	    	
 	        System.out.print("Ingrese el director técnico favorito: ");
-	        String directorTecnicoFavorito = scanner.nextLine();
-
-	        System.out.print("Ingrese la cantidad de profesores a cargo: ");
-	        int cantidadProfesoresACargo = scanner.nextInt();
-
-	        return new Coordinador(directorTecnicoFavorito);
+	        coordinador.setDirectorTecnicoFavorito(scanner.nextLine());
+	        return coordinador;
 	    }
 
 	    // Captura de datos para Persona
@@ -175,7 +166,7 @@ public class LogicaInputOutput {
 	        String domicilio = scanner.nextLine();
 
 	        System.out.print("Ingrese la provincia: ");
-	        String provincia = scanner.nextLine();
+	        String provincia = scanner.nextLine().toUpperCase();
 
 	        System.out.print("Ingrese el código postal: ");
 	        String codigoPostal = scanner.nextLine();
@@ -188,31 +179,27 @@ public class LogicaInputOutput {
 
 	        System.out.print("Ingrese el club al que hincha: ");
 	        String hinchaClub = scanner.nextLine();
-
-	        return new Persona(apellidoNombre);
+	        
+			return new Persona(apellidoNombre, fechaNacimiento, dni, sexo, edad, domicilio, Provincia.valueOf(provincia) , codigoPostal, email, telefono, hinchaClub);
 	    }
 
 	    // Captura de datos para Profesor
 	    public static Profesor obtenerDatosProfesor() {
-	        System.out.print("Ingrese el apellido y nombre: ");
-	        String apellidoNombre = scanner.nextLine();
-
-	        Profesor profesor = new Profesor(apellidoNombre);
+	    	
+	    	Profesor profesor = (Profesor) obtenerDatosPersona();
 
 	        System.out.print("Ingrese la categoría dirigida: ");
-	        int categoriaDirigida = scanner.nextInt();
-
-	        // Aquí puedes añadir lógica para asignar equipos
-	        // profesor.setEquipoAsignado(...);
+	        profesor.setCategoriaDirigida(scanner.nextInt());
 
 	        System.out.print("Ingrese el director técnico favorito: ");
-	        String directorTecnicoFavorito = scanner.nextLine();
+	        profesor.setDirectorTecnicoFavorito(scanner.nextLine());
 
 	        return profesor;
-	    }
+	     }
 
 	    // Captura de datos para Liga
 	    public static Liga obtenerDatosLiga() {
+	    	
 	        System.out.print("Ingrese el nombre de la liga: ");
 	        String nombreLiga = scanner.nextLine();
 
@@ -222,7 +209,7 @@ public class LogicaInputOutput {
 	        System.out.print("Ingrese la categoría de la liga: ");
 	        int categoriaLiga = scanner.nextInt();
 
-	        return new Liga(nombreLiga);
+	        return new Liga(categoriaLiga, nombreLiga, nroFechaLiga, categoriaLiga, null, null);
 	    }
 
 	/**

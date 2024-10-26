@@ -20,7 +20,6 @@ public class Partido {
 	private int horaPartido;
 	private int cantidadGolesEquipoLocal;
 	private int cantidadGolesEquipoVisitante;
-	private int resultadoPartido;
 	
 	/**
 	 * @return the equipoLocal
@@ -121,20 +120,6 @@ public class Partido {
 	}
 
 	/**
-	 * @return the resultadoPartido
-	 */
-	public int getResultadoPartido() {
-		return resultadoPartido;
-	}
-
-	/**
-	 * @param resultadoPartido the resultadoPartido to set
-	 */
-	public void setResultadoPartido(int resultadoPartido) {
-		this.resultadoPartido = resultadoPartido;
-	}
-
-	/**
 	 * @param equipoLocal
 	 * @param equipoVisitante
 	 * @param categoria
@@ -142,10 +127,9 @@ public class Partido {
 	 * @param horaPartido
 	 * @param cantidadGolesEquipoLocal
 	 * @param cantidadGolesEquipoVisitante
-	 * @param resultadoPartido
 	 */
 	public Partido(Equipo equipoLocal, Equipo equipoVisitante, int categoria, Date fechaPartido, int horaPartido,
-			int cantidadGolesEquipoLocal, int cantidadGolesEquipoVisitante, int resultadoPartido) {
+			int cantidadGolesEquipoLocal, int cantidadGolesEquipoVisitante) {
 		super();
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
@@ -154,6 +138,14 @@ public class Partido {
 		this.horaPartido = horaPartido;
 		this.cantidadGolesEquipoLocal = cantidadGolesEquipoLocal;
 		this.cantidadGolesEquipoVisitante = cantidadGolesEquipoVisitante;
-		this.resultadoPartido = resultadoPartido;
+	}
+
+	/**
+	 * @param equipoLocal2
+	 * @param equipoVisitante2
+	 */
+	public Partido(Equipo equipoLocal, Equipo equipoVisitante) {
+		this.equipoVisitante = equipoVisitante;
+		this.equipoLocal = equipoLocal;
 	}
 }

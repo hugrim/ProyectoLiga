@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class Fixture {
 
+	private int idFixture;
 	private int posicionEquipo;
 	private List<Equipo> listEquipo;
 	private int cantidadPuntosEquipo;

@@ -26,6 +26,34 @@ public class Persona {
 	private String hinchaClub;
 	
 	/**
+	 * @param apellidoNombre
+	 * @param fechaNacimiento
+	 * @param dni
+	 * @param sexo
+	 * @param edad
+	 * @param domicilio
+	 * @param provincia
+	 * @param codigoPostal
+	 * @param email
+	 * @param telefono
+	 * @param hinchaClub
+	 */
+	public Persona(String apellidoNombre, Date fechaNacimiento, int dni, char sexo, int edad, String domicilio,
+			Provincia provincia, String codigoPostal, String email, long telefono, String hinchaClub) {
+		super();
+		this.apellidoNombre = apellidoNombre;
+		this.fechaNacimiento = fechaNacimiento;
+		this.dni = dni;
+		this.sexo = sexo;
+		this.edad = edad;
+		this.domicilio = domicilio;
+		this.provincia = provincia;
+		this.codigoPostal = codigoPostal;
+		this.email = email;
+		this.telefono = telefono;
+		this.hinchaClub = hinchaClub;
+	}
+	/**
 	 * @return the apellidoNombre
 	 */
 	public String getApellidoNombre() {

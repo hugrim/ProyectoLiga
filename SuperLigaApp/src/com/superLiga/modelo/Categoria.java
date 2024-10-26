@@ -88,5 +88,19 @@ public class Categoria {
 		this.jugadoresCategoria = jugadoresCategoria;
 		this.equiposCategoria = equiposCategoria;
 	}
+
+	/**
+	 * @param anioCategoria2
+	 */
+	public Categoria(int anioCategoria) {
+		this.anioCategoria = anioCategoria;
+	}
+
+	/**
+	 * 
+	 */
+	public Categoria() {
+		// TODO Auto-generated constructor stub
+	}
 	
 }
