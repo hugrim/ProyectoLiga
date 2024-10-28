@@ -38,53 +38,24 @@ public class LogicaInputOutput {
 	  */
 	 public static Jugador obtenerDatosJugador() {
 		
-		 Jugador jugador = (Jugador) obtenerDatosPersona();
+		 Persona persona = obtenerDatosPersona();
 		 
-			/*
-			 * System.out.print("Apellido y Nombre: ");
-			 * jugador.setApellidoNombre(scanner.nextLine());
-			 * 
-			 * System.out.print("Fecha de Nacimiento (yyyy-mm-dd): ");
-			 * jugador.setFechaNacimiento(parseDate(scanner.nextLine()));
-			 * 
-			 * System.out.print("DNI: "); jugador.setDni(scanner.nextInt());
-			 * 
-			 * System.out.print("Sexo (M/F): "); jugador.setSexo(scanner.next().charAt(0));
-			 * scanner.nextLine(); // Limpiar el buffer
-			 * 
-			 * System.out.print("Direccion: "); jugador.setDomicilio(scanner.nextLine());
-			 * 
-			 * System.out.print("Provincia: ");
-			 * 
-			 * String provincia = scanner.nextLine().toUpperCase();
-			 * 
-			 * // Utilizando el valueOf() del Enum , convierto el valor ingresado por
-			 * teclado a un valor del Enum, realizando la comparacion //Luego lo inserto en
-			 * el objeto del tipo Jugador //En el caso que el valor no sea valido, se
-			 * captura el error (con una excepcion IllegalArgumentException) y se muestra un
-			 * mensaje al usuario try { jugador.setProvincia(Provincia.valueOf(provincia));
-			 * } catch (IllegalArgumentException e) {
-			 * System.out.println("Valor ingresado de Provincia no es válido."); }
-			 * 
-			 * System.out.print("Codigo Postal: ");
-			 * jugador.setCodigoPostal(scanner.nextLine());
-			 * 
-			 * System.out.print("Telefono: "); jugador.setTelefono(scanner.nextLong());
-			 * 
-			 * System.out.print("Email: "); jugador.setEmail(scanner.next());
-			 */
-
 	        System.out.print("Categoria Jugador: ");
-	        jugador.setCategoria(scanner.nextInt());
+	        int categoria = scanner.nextInt();
 
+	        if (scanner.hasNextLine()) {
+	            scanner.nextLine();
+	        }
+	        
 	        System.out.print("Equipo Asignado: ");
-	        jugador.setEquipoAsignado(scanner.nextLine());
+	        String equipoAsignado =scanner.nextLine();
 
 	        System.out.print("Numero de Camiseta: ");
-	        jugador.setNroCamiseta(scanner.nextInt());
+	        int nroCamiseta = scanner.nextInt();
 
 		 
-		return jugador;		 
+		return new Jugador(persona.getApellidoNombre(), persona.getFechaNacimiento(), persona.getDni(), persona.getSexo(), persona.getEdad(), persona.getDomicilio(), persona.getProvincia(), persona.getCodigoPostal(), persona.getEmail(), persona.getTelefono(), persona.getHinchaClub(), categoria, equipoAsignado, nroCamiseta);
+				
 	 }
 	 
 	 /**
@@ -161,12 +132,23 @@ public class LogicaInputOutput {
 
 	        System.out.print("Ingrese la edad: ");
 	        int edad = scanner.nextInt();
-
+	        
+	        if (scanner.hasNextLine()) {
+	            scanner.nextLine();
+	        }
+	        
 	        System.out.print("Ingrese el domicilio: ");
 	        String domicilio = scanner.nextLine();
 
 	        System.out.print("Ingrese la provincia: ");
-	        String provincia = scanner.nextLine().toUpperCase();
+	        String provinciaInput = scanner.nextLine();
+	        
+	        Provincia provincia = obtenerProvinciaPorDescripcion(provinciaInput);
+	        if (provincia != null) {
+	            System.out.println("Provincia seleccionada: " + provincia.getDescripcion());
+	        } else {
+	            System.out.println("Provincia no válida.");
+	        }
 
 	        System.out.print("Ingrese el código postal: ");
 	        String codigoPostal = scanner.nextLine();
@@ -176,11 +158,24 @@ public class LogicaInputOutput {
 
 	        System.out.print("Ingrese el teléfono: ");
 	        long telefono = scanner.nextLong();
+	        
+	        if (scanner.hasNextLine()) {
+	            scanner.nextLine();
+	        }
 
 	        System.out.print("Ingrese el club al que hincha: ");
 	        String hinchaClub = scanner.nextLine();
 	        
-			return new Persona(apellidoNombre, fechaNacimiento, dni, sexo, edad, domicilio, Provincia.valueOf(provincia) , codigoPostal, email, telefono, hinchaClub);
+			return new Persona(apellidoNombre, fechaNacimiento, dni, sexo, edad, domicilio, provincia , codigoPostal, email, telefono, hinchaClub);
+	    }
+	    
+	    public static Provincia obtenerProvinciaPorDescripcion(String descripcion) {
+	        for (Provincia provincia : Provincia.values()) {
+	            if (provincia.getDescripcion().equalsIgnoreCase(descripcion)) {
+	                return provincia;
+	            }
+	        }
+	        return null; // O lanza una excepción si no se encuentra
 	    }
 
 	    // Captura de datos para Profesor

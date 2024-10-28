@@ -23,20 +23,17 @@ public class CategoriaServiceimpl implements ServiceGenerico<Categoria> {
 
 	@Override
 	public void agregar(Categoria categoria) {
-		
-		Categoria nuevaCategoria = LogicaInputOutput.obtenerDatosCategoria();
 		String query = "INSERT INTO categoria"
 				+ "(anioCategoria)"
 				+ "VALUES"
 				+ "(?)";
 		try (Connection conexion = ConexionBaseDatos.obtenerConexion();
 				PreparedStatement statement = conexion.prepareStatement(query)){
-			statement.setInt(1, nuevaCategoria.getAnioCategoria());
+			statement.setInt(1, categoria.getAnioCategoria());
 			statement.executeUpdate();
 		} catch (SQLException e) {
-			// TODO: handle exception
-		}
-		
+			System.err.println("Error al agregar la Categoria: " + e.getMessage());
+		}		
 	}
 
 	@Override

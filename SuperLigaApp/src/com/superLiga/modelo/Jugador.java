@@ -100,7 +100,5 @@ public class Jugador extends Persona{
 		this.nroCamiseta = nroCamiseta;
 	}
 	
-
-
 	
 }
