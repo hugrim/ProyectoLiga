@@ -3,8 +3,6 @@
  */
 package com.superLiga.modelo;
 
-import java.util.List;
-
 /**
  * @author Hugo Grimanis 
  * Legajo: VINF013133 
@@ -16,147 +14,221 @@ public class Equipo {
 	private int idEquipo;
 	private String nombreEquipo;
 	private int categoriaEquipo;
-	private List<Jugador> listaJugadores;
+	private String apellidoNombreJugador;
+	private int nroCamisetaJugador;
 	private int cantidadPartidosGanados;
 	private int cantidadPartidosEmpatados;
 	private int cantidadPartidosPerdidos;
+	private int cantidadGolesAFavor;
+	private int cantidadGolesenContra;
 	private int diferenciaGol;
-	
+	private String apellidoNombreProfesor;
+
 	/**
-	 * @return the idEquipo
+	 * @return idEquipo
 	 */
 	public int getIdEquipo() {
 		return idEquipo;
 	}
 
+
 	/**
-	 * @param idEquipo the idEquipo to set
+	 * @param idEquipo 
 	 */
 	public void setIdEquipo(int idEquipo) {
 		this.idEquipo = idEquipo;
 	}
 
+
 	/**
-	 * @return the nombreEquipo
+	 * @return  nombreEquipo
 	 */
 	public String getNombreEquipo() {
 		return nombreEquipo;
 	}
 
+
 	/**
-	 * @param nombreEquipo the nombreEquipo to set
+	 * @param nombreEquipo 
 	 */
 	public void setNombreEquipo(String nombreEquipo) {
 		this.nombreEquipo = nombreEquipo;
 	}
 
+
 	/**
-	 * @return the categoriaEquipo
+	 * @return  categoriaEquipo
 	 */
 	public int getCategoriaEquipo() {
 		return categoriaEquipo;
 	}
 
+
 	/**
-	 * @param categoriaEquipo the categoriaEquipo to set
+	 * @param categoriaEquipo 
 	 */
 	public void setCategoriaEquipo(int categoriaEquipo) {
 		this.categoriaEquipo = categoriaEquipo;
 	}
 
-	/**
-	 * @return the listaJugadores
-	 */
-	public List<Jugador> getListaJugadores() {
-		return listaJugadores;
-	}
 
 	/**
-	 * @param listaJugadores the listaJugadores to set
+	 * @return apellidoNombreJugador
 	 */
-	public void setListaJugadores(List<Jugador> listaJugadores) {
-		this.listaJugadores = listaJugadores;
+	public String getApellidoNombreJugador() {
+		return apellidoNombreJugador;
 	}
 
+
 	/**
-	 * @return the cantidadPartidosGanados
+	 * @param apellidoNombreJugador 
+	 */
+	public void setApellidoNombreJugador(String apellidoNombreJugador) {
+		this.apellidoNombreJugador = apellidoNombreJugador;
+	}
+
+
+	/**
+	 * @return nroCamisetaJugador
+	 */
+	public int getNroCamisetaJugador() {
+		return nroCamisetaJugador;
+	}
+
+
+	/**
+	 * @param nroCamisetaJugador 
+	 */
+	public void setNroCamisetaJugador(int nroCamisetaJugador) {
+		this.nroCamisetaJugador = nroCamisetaJugador;
+	}
+
+
+	/**
+	 * @return cantidadPartidosGanados
 	 */
 	public int getCantidadPartidosGanados() {
 		return cantidadPartidosGanados;
 	}
 
+
 	/**
-	 * @param cantidadPartidosGanados the cantidadPartidosGanados to set
+	 * @param cantidadPartidosGanados
 	 */
 	public void setCantidadPartidosGanados(int cantidadPartidosGanados) {
 		this.cantidadPartidosGanados = cantidadPartidosGanados;
 	}
 
+
 	/**
-	 * @return the cantidadPartidosEmpatados
+	 * @return  cantidadPartidosEmpatados
 	 */
 	public int getCantidadPartidosEmpatados() {
 		return cantidadPartidosEmpatados;
 	}
 
+
 	/**
-	 * @param cantidadPartidosEmpatados the cantidadPartidosEmpatados to set
+	 * @param cantidadPartidosEmpatados
 	 */
 	public void setCantidadPartidosEmpatados(int cantidadPartidosEmpatados) {
 		this.cantidadPartidosEmpatados = cantidadPartidosEmpatados;
 	}
 
+
 	/**
-	 * @return the cantidadPartidosPerdidos
+	 * @return cantidadPartidosPerdidos
 	 */
 	public int getCantidadPartidosPerdidos() {
 		return cantidadPartidosPerdidos;
 	}
 
+
 	/**
-	 * @param cantidadPartidosPerdidos the cantidadPartidosPerdidos to set
+	 * @param cantidadPartidosPerdidos
 	 */
 	public void setCantidadPartidosPerdidos(int cantidadPartidosPerdidos) {
 		this.cantidadPartidosPerdidos = cantidadPartidosPerdidos;
 	}
 
+
 	/**
-	 * @return the diferenciaGol
+	 * @return cantidadGolesAFavor
+	 */
+	public int getCantidadGolesAFavor() {
+		return cantidadGolesAFavor;
+	}
+
+
+	/**
+	 * @param cantidadGolesAFavor
+	 */
+	public void setCantidadGolesAFavor(int cantidadGolesAFavor) {
+		this.cantidadGolesAFavor = cantidadGolesAFavor;
+	}
+
+
+	/**
+	 * @return  cantidadGolesenContra
+	 */
+	public int getCantidadGolesenContra() {
+		return cantidadGolesenContra;
+	}
+
+
+	/**
+	 * @param cantidadGolesenContra 
+	 */
+	public void setCantidadGolesenContra(int cantidadGolesenContra) {
+		this.cantidadGolesenContra = cantidadGolesenContra;
+	}
+
+
+	/**
+	 * @return diferenciaGol
 	 */
 	public int getDiferenciaGol() {
 		return diferenciaGol;
 	}
 
+
 	/**
-	 * @param diferenciaGol the diferenciaGol to set
+	 * @param diferenciaGol
 	 */
 	public void setDiferenciaGol(int diferenciaGol) {
 		this.diferenciaGol = diferenciaGol;
 	}
 
 	/**
-	 * @param idEquipo
 	 * @param nombreEquipo
 	 * @param categoriaEquipo
-	 * @param listaJugadores
+	 * @param apellidoNombreJugador
+	 * @param nroCamisetaJugador
 	 * @param cantidadPartidosGanados
 	 * @param cantidadPartidosEmpatados
 	 * @param cantidadPartidosPerdidos
+	 * @param cantidadGolesAFavor
+	 * @param cantidadGolesenContra
 	 * @param diferenciaGol
+	 * @param apellidoNombreProfesor
 	 */
-	public Equipo(int idEquipo, String nombreEquipo, int categoriaEquipo, List<Jugador> listaJugadores,
+	public Equipo(String nombreEquipo, int categoriaEquipo, String apellidoNombreJugador, int nroCamisetaJugador,
 			int cantidadPartidosGanados, int cantidadPartidosEmpatados, int cantidadPartidosPerdidos,
-			int diferenciaGol) {
+			int cantidadGolesAFavor, int cantidadGolesenContra, int diferenciaGol, String apellidoNombreProfesor) {
 		super();
-		this.idEquipo = idEquipo;
 		this.nombreEquipo = nombreEquipo;
 		this.categoriaEquipo = categoriaEquipo;
-		this.listaJugadores = listaJugadores;
+		this.apellidoNombreJugador = apellidoNombreJugador;
+		this.nroCamisetaJugador = nroCamisetaJugador;
 		this.cantidadPartidosGanados = cantidadPartidosGanados;
 		this.cantidadPartidosEmpatados = cantidadPartidosEmpatados;
 		this.cantidadPartidosPerdidos = cantidadPartidosPerdidos;
+		this.cantidadGolesAFavor = cantidadGolesAFavor;
+		this.cantidadGolesenContra = cantidadGolesenContra;
 		this.diferenciaGol = diferenciaGol;
+		this.apellidoNombreProfesor = apellidoNombreProfesor;
 	}
+
 
 	/**
 	 * @param nombreEquipo2
@@ -167,4 +239,45 @@ public class Equipo {
 			this.categoriaEquipo = categoriaEquipo;
 	}
 	
+	/**
+	 * @param nombreEquipo2
+	 * @param categoriaEquipo2
+	 */
+	public Equipo(String nombreEquipo) {
+			this.nombreEquipo = nombreEquipo;
+	}
+
+
+	/**
+	 * @return apellidoNombreProfesor
+	 */
+	public String getApellidoNombreProfesor() {
+		return apellidoNombreProfesor;
+	}
+
+
+	/**
+	 * @param apellidoNombreProfesor
+	 */
+	public void setApellidoNombreProfesor(String apellidoNombreProfesor) {
+		this.apellidoNombreProfesor = apellidoNombreProfesor;
+	}
+	
+	
+	 // Método toString para imprimir los datos del equipo
+    @Override
+    public String toString() {
+        return "Equipo : " + '\n' +
+                "nombreEquipo=" + nombreEquipo + '\n' +
+                "categoriaEquipo=" + categoriaEquipo + '\n' +
+                "apellidoNombreJugador=" + apellidoNombreJugador + '\n' +
+                "nroCamisetaJugador=" + nroCamisetaJugador + '\n' +
+                "cantidadPartidosGanados=" + cantidadPartidosGanados + '\n' +
+                "cantidadPartidosEmpatados=" + cantidadPartidosEmpatados + '\n' +
+                "cantidadPartidosPerdidos=" + cantidadPartidosPerdidos + '\n' +
+                "cantidadGolesAFavor=" + cantidadGolesAFavor + '\n' +
+                "cantidadGolesEnContra=" + cantidadGolesenContra + '\n' +
+                "diferenciaDeGol=" + diferenciaGol + '\n' +
+                "apellidoNombreProfesor=" + apellidoNombreProfesor + '\n';
+    }
 }

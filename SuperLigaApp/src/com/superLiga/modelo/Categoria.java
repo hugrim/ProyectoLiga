@@ -19,56 +19,56 @@ public class Categoria {
 	private List<Equipo> equiposCategoria;
 	
 	/**
-	 * @return the idCategoria
+	 * @return idCategoria
 	 */
 	public int getIdCategoria() {
 		return idCategoria;
 	}
 
 	/**
-	 * @param idCategoria the idCategoria to set
+	 * @param idCategoria 
 	 */
 	public void setIdCategoria(int idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 
 	/**
-	 * @return the anioCategoria
+	 * @return anioCategoria
 	 */
 	public int getAnioCategoria() {
 		return anioCategoria;
 	}
 
 	/**
-	 * @param anioCategoria the anioCategoria to set
+	 * @param anioCategoria 
 	 */
 	public void setAnioCategoria(int anioCategoria) {
 		this.anioCategoria = anioCategoria;
 	}
 
 	/**
-	 * @return the jugadoresCategoria
+	 * @return  jugadoresCategoria
 	 */
 	public List<Jugador> getJugadoresCategoria() {
 		return jugadoresCategoria;
 	}
 
 	/**
-	 * @param jugadoresCategoria the jugadoresCategoria to set
+	 * @param jugadoresCategoria 
 	 */
 	public void setJugadoresCategoria(List<Jugador> jugadoresCategoria) {
 		this.jugadoresCategoria = jugadoresCategoria;
 	}
 
 	/**
-	 * @return the equiposCategoria
+	 * @return  equiposCategoria
 	 */
 	public List<Equipo> getEquiposCategoria() {
 		return equiposCategoria;
 	}
 
 	/**
-	 * @param equiposCategoria the equiposCategoria to set
+	 * @param equiposCategoria 
 	 */
 	public void setEquiposCategoria(List<Equipo> equiposCategoria) {
 		this.equiposCategoria = equiposCategoria;

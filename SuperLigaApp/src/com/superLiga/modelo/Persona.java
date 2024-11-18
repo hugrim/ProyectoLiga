@@ -54,43 +54,50 @@ public class Persona {
 		this.hinchaClub = hinchaClub;
 	}
 	/**
-	 * @return the apellidoNombre
+	 * 
+	 */
+	public Persona() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * @return  apellidoNombre
 	 */
 	public String getApellidoNombre() {
 		return apellidoNombre;
 	}
 	/**
-	 * @param apellidoNombre the apellidoNombre to set
+	 * @param apellidoNombre 
 	 */
 	public void setApellidoNombre(String apellidoNombre) {
 		this.apellidoNombre = apellidoNombre;
 	}
 	/**
-	 * @return the fechaNacimiento
+	 * @return fechaNacimiento
 	 */
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 	/**
-	 * @param fechaNacimiento the fechaNacimiento to set
+	 * @param fechaNacimiento 
 	 */
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	/**
-	 * @return the dni
+	 * @return dni
 	 */
 	public int getDni() {
 		return dni;
 	}
 	/**
-	 * @param dni the dni to set
+	 * @param dni 
 	 */
 	public void setDni(int dni) {
 		this.dni = dni;
 	}
 	/**
-	 * @return the sexo
+	 * @return  sexo
 	 */
 	public char getSexo() {
 		return sexo;
@@ -102,85 +109,85 @@ public class Persona {
 		this.sexo = sexo;
 	}
 	/**
-	 * @return the edad
+	 * @return  edad
 	 */
 	public int getEdad() {
 		return edad;
 	}
 	/**
-	 * @param edad the edad to set
+	 * @param edad 
 	 */
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 	/**
-	 * @return the domicilio
+	 * @return domicilio
 	 */
 	public String getDomicilio() {
 		return domicilio;
 	}
 	/**
-	 * @param domicilio the domicilio to set
+	 * @param domicilio 
 	 */
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
 	}
 	/**
-	 * @return the provincia
+	 * @return  provincia
 	 */
 	public Provincia getProvincia() {
 		return provincia;
 	}
 	/**
-	 * @param provincia the provincia to set
+	 * @param provincia
 	 */
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
 	}
 	/**
-	 * @return the codigoPostal
+	 * @return  codigoPostal
 	 */
 	public String getCodigoPostal() {
 		return codigoPostal;
 	}
 	/**
-	 * @param codigoPostal the codigoPostal to set
+	 * @param codigoPostal 
 	 */
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
 	/**
-	 * @return the email
+	 * @return  email
 	 */
 	public String getEmail() {
 		return email;
 	}
 	/**
-	 * @param email the email to set
+	 * @param email 
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 	/**
-	 * @return the telefono
+	 * @return  telefono
 	 */
 	public long getTelefono() {
 		return telefono;
 	}
 	/**
-	 * @param telefono the telefono to set
+	 * @param telefono 
 	 */
 	public void setTelefono(long telefono) {
 		this.telefono = telefono;
 	}
 	/**
-	 * @return the hinchaClub
+	 * @return  hinchaClub
 	 */
 	public String getHinchaClub() {
 		return hinchaClub;
 	}
 	/**
-	 * @param hinchaClub the hinchaClub to set
+	 * @param hinchaClub 
 	 */
 	public void setHinchaClub(String hinchaClub) {
 		this.hinchaClub = hinchaClub;

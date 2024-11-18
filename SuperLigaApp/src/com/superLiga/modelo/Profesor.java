@@ -4,7 +4,6 @@
 package com.superLiga.modelo;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author Hugo Grimanis 
@@ -16,8 +15,8 @@ public class Profesor extends Persona{
 
 	private int idProfesor;
 	private int categoriaDirigida;
-	private List<Equipo> equipoAsignado;
 	private String directorTecnicoFavorito;
+	private String equipoAsignado;
 	
 	/**
 	 * @param apellidoNombre
@@ -31,68 +30,80 @@ public class Profesor extends Persona{
 	 * @param email
 	 * @param telefono
 	 * @param hinchaClub
-	 * @param idProfesor
 	 * @param categoriaDirigida
-	 * @param equipoAsignado
 	 * @param directorTecnicoFavorito
+	 * @param equipoAsignado
 	 */
 	public Profesor(String apellidoNombre, Date fechaNacimiento, int dni, char sexo, int edad, String domicilio,
-			Provincia provincia, String codigoPostal, String email, long telefono, String hinchaClub, int categoriaDirigida, List<Equipo> equipoAsignado, String directorTecnicoFavorito) {
+			Provincia provincia, String codigoPostal, String email, long telefono, String hinchaClub, int categoriaDirigida, String directorTecnicoFavorito, String equipoAsignado) {
 		super(apellidoNombre, fechaNacimiento, dni, sexo, edad, domicilio, provincia, codigoPostal, email, telefono,
 				hinchaClub);
 		this.categoriaDirigida = categoriaDirigida;
-		this.equipoAsignado = equipoAsignado;
 		this.directorTecnicoFavorito = directorTecnicoFavorito;
+		this.equipoAsignado = equipoAsignado;
 	}
 
 
 	/**
-	 * @return the idProfesor
+	 * 
+	 */
+	public Profesor() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	/**
+	 * @return  idProfesor
 	 */
 	public int getIdProfesor() {
 		return idProfesor;
 	}
 	/**
-	 * @param idProfesor the idProfesor to set
+	 * @param idProfesor 
 	 */
 	public void setIdProfesor(int idProfesor) {
 		this.idProfesor = idProfesor;
 	}
 	/**
-	 * @return the categoriaDirigida
+	 * @return categoriaDirigida
 	 */
 	public int getCategoriaDirigida() {
 		return categoriaDirigida;
 	}
 	/**
-	 * @param categoriaDirigida the categoriaDirigida to set
+	 * @param categoriaDirigida 
 	 */
 	public void setCategoriaDirigida(int categoriaDirigida) {
 		this.categoriaDirigida = categoriaDirigida;
 	}
+
 	/**
-	 * @return the equipoAsignado
-	 */
-	public List<Equipo> getEquipoAsignado() {
-		return equipoAsignado;
-	}
-	/**
-	 * @param equipoAsignado the equipoAsignado to set
-	 */
-	public void setEquipoAsignado(List<Equipo> equipoAsignado) {
-		this.equipoAsignado = equipoAsignado;
-	}
-	/**
-	 * @return the directorTecnicoFavorito
+	 * @return  directorTecnicoFavorito
 	 */
 	public String getDirectorTecnicoFavorito() {
 		return directorTecnicoFavorito;
 	}
 	/**
-	 * @param directorTecnicoFavorito the directorTecnicoFavorito to set
+	 * @param directorTecnicoFavorito 
 	 */
 	public void setDirectorTecnicoFavorito(String directorTecnicoFavorito) {
 		this.directorTecnicoFavorito = directorTecnicoFavorito;
+	}
+
+
+	/**
+	 * @return the equipoAsignado
+	 */
+	public String getEquipoAsignado() {
+		return equipoAsignado;
+	}
+
+
+	/**
+	 * @param equipoAsignado the equipoAsignado to set
+	 */
+	public void setEquipoAsignado(String equipoAsignado) {
+		this.equipoAsignado = equipoAsignado;
 	}
 	
 

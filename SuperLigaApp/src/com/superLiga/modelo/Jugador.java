@@ -19,56 +19,56 @@ public class Jugador extends Persona{
 	private int nroCamiseta;
 
 	/**
-	 * @return the idJugador
+	 * @return idJugador
 	 */
 	public int getIdJugador() {
 		return idJugador;
 	}
 
 	/**
-	 * @param idJugador the idJugador to set
+	 * @param idJugador 
 	 */
 	public void setIdJugador(int idJugador) {
 		this.idJugador = idJugador;
 	}
 
 	/**
-	 * @return the categoria
+	 * @return  categoria
 	 */
 	public int getCategoria() {
 		return categoria;
 	}
 
 	/**
-	 * @param categoria the categoria to set
+	 * @param categoria 
 	 */
 	public void setCategoria(int categoria) {
 		this.categoria = categoria;
 	}
 
 	/**
-	 * @return the equipoAsignado
+	 * @return  equipoAsignado
 	 */
 	public String getEquipoAsignado() {
 		return equipoAsignado;
 	}
 
 	/**
-	 * @param equipoAsignado the equipoAsignado to set
+	 * @param equipoAsignado 
 	 */
 	public void setEquipoAsignado(String equipoAsignado) {
 		this.equipoAsignado = equipoAsignado;
 	}
 
 	/**
-	 * @return the nroCamiseta
+	 * @return  nroCamiseta
 	 */
 	public int getNroCamiseta() {
 		return nroCamiseta;
 	}
 
 	/**
-	 * @param nroCamiseta the nroCamiseta to set
+	 * @param nroCamiseta 
 	 */
 	public void setNroCamiseta(int nroCamiseta) {
 		this.nroCamiseta = nroCamiseta;
@@ -98,6 +98,13 @@ public class Jugador extends Persona{
 		this.categoria = categoria;
 		this.equipoAsignado = equipoAsignado;
 		this.nroCamiseta = nroCamiseta;
+	}
+
+	/**
+	 * 
+	 */
+	public Jugador() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	

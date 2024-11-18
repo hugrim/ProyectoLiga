@@ -12,7 +12,6 @@ import com.superLiga.modelo.Coordinador;
 import com.superLiga.modelo.Equipo;
 import com.superLiga.modelo.Jugador;
 import com.superLiga.modelo.Liga;
-import com.superLiga.modelo.Partido;
 import com.superLiga.modelo.Persona;
 import com.superLiga.modelo.Profesor;
 import com.superLiga.modelo.Provincia;
@@ -46,15 +45,8 @@ public class LogicaInputOutput {
 	        if (scanner.hasNextLine()) {
 	            scanner.nextLine();
 	        }
-	        
-	        System.out.print("Equipo Asignado: ");
-	        String equipoAsignado =scanner.nextLine();
-
-	        System.out.print("Numero de Camiseta: ");
-	        int nroCamiseta = scanner.nextInt();
-
 		 
-		return new Jugador(persona.getApellidoNombre(), persona.getFechaNacimiento(), persona.getDni(), persona.getSexo(), persona.getEdad(), persona.getDomicilio(), persona.getProvincia(), persona.getCodigoPostal(), persona.getEmail(), persona.getTelefono(), persona.getHinchaClub(), categoria, equipoAsignado, nroCamiseta);
+		return new Jugador(persona.getApellidoNombre(), persona.getFechaNacimiento(), persona.getDni(), persona.getSexo(), persona.getEdad(), persona.getDomicilio(), persona.getProvincia(), persona.getCodigoPostal(), persona.getEmail(), persona.getTelefono(), persona.getHinchaClub(), categoria, "", 0);
 				
 	 }
 	 
@@ -72,30 +64,7 @@ public class LogicaInputOutput {
 	        scanner.nextLine(); // Limpiar el buffer
 
 	        return new Equipo(nombreEquipo, categoriaEquipo);
-	 }
-	// Captura de datos para Partido
-	    public static Partido obtenerDatosPartido() {
-	        Equipo equipoLocal = obtenerDatosEquipo();
-	        Equipo equipoVisitante = obtenerDatosEquipo();
-
-	        System.out.print("Ingrese la categoría: ");
-	        int categoria = scanner.nextInt();
-
-	        System.out.print("Ingrese la fecha del partido (yyyy-mm-dd): ");
-	        Date fechaPartido = parseDate(scanner.nextLine());
-
-	        System.out.print("Ingrese la hora del partido: ");
-	        int horaPartido = scanner.nextInt();
-
-	        System.out.print("Ingrese la cantidad de goles del equipo local: ");
-	        int cantidadGolesEquipoLocal = scanner.nextInt();
-
-	        System.out.print("Ingrese la cantidad de goles del equipo visitante: ");
-	        int cantidadGolesEquipoVisitante = scanner.nextInt();
-
-	        return new Partido(equipoLocal, equipoVisitante, categoria, fechaPartido, horaPartido, cantidadGolesEquipoLocal, cantidadGolesEquipoVisitante);
-	    }
-	    
+	 } 
 
 	    // Captura de datos para Categoria
 	    public static Categoria obtenerDatosCategoria() {
@@ -107,18 +76,22 @@ public class LogicaInputOutput {
 
 	    // Captura de datos para Coordinador
 	    public static Coordinador obtenerDatosCoordinador() {
-	    	
-	    	Coordinador coordinador = (Coordinador) obtenerDatosPersona();
-	    	
+	    	Persona persona = obtenerDatosPersona();
+
 	        System.out.print("Ingrese el director técnico favorito: ");
-	        coordinador.setDirectorTecnicoFavorito(scanner.nextLine());
-	        return coordinador;
+            String directorTecnicoFavorito = scanner.nextLine().toLowerCase();
+
+		 
+			return new Coordinador(persona.getApellidoNombre(), persona.getFechaNacimiento(), persona.getDni(), persona.getSexo(), 
+								persona.getEdad(), persona.getDomicilio(), persona.getProvincia(), persona.getCodigoPostal(), persona.getEmail(), 
+								persona.getTelefono(), persona.getHinchaClub(),directorTecnicoFavorito,0);
+
 	    }
 
 	    // Captura de datos para Persona
 	    public static Persona obtenerDatosPersona() {
 	        System.out.print("Ingrese el apellido y nombre: ");
-	        String apellidoNombre = scanner.nextLine();
+	        String apellidoNombre = scanner.nextLine().toLowerCase();
 
 	        System.out.print("Ingrese la fecha de nacimiento (yyyy-mm-dd): ");
 	        Date fechaNacimiento = parseDate(scanner.nextLine());
@@ -180,16 +153,22 @@ public class LogicaInputOutput {
 
 	    // Captura de datos para Profesor
 	    public static Profesor obtenerDatosProfesor() {
-	    	
-	    	Profesor profesor = (Profesor) obtenerDatosPersona();
-
-	        System.out.print("Ingrese la categoría dirigida: ");
-	        profesor.setCategoriaDirigida(scanner.nextInt());
+	    	Persona persona = obtenerDatosPersona();
 
 	        System.out.print("Ingrese el director técnico favorito: ");
-	        profesor.setDirectorTecnicoFavorito(scanner.nextLine());
+            String directorTecnicoFavorito = scanner.nextLine().toLowerCase();
 
-	        return profesor;
+            System.out.print("Ingrese la categoría a Dirigir: ");
+	        int categoriaDirigida = scanner.nextInt();
+	        
+	        if (scanner.hasNextLine()) {
+	            scanner.nextLine();
+	        }
+		 
+			return new Profesor(persona.getApellidoNombre(), persona.getFechaNacimiento(), persona.getDni(), persona.getSexo(), 
+								persona.getEdad(), persona.getDomicilio(), persona.getProvincia(), persona.getCodigoPostal(), persona.getEmail(), 
+								persona.getTelefono(), persona.getHinchaClub(), categoriaDirigida, directorTecnicoFavorito, "");
+			
 	     }
 
 	    // Captura de datos para Liga
@@ -198,13 +177,10 @@ public class LogicaInputOutput {
 	        System.out.print("Ingrese el nombre de la liga: ");
 	        String nombreLiga = scanner.nextLine();
 
-	        System.out.print("Ingrese el número de fecha de la liga: ");
-	        int nroFechaLiga = scanner.nextInt();
-
 	        System.out.print("Ingrese la categoría de la liga: ");
 	        int categoriaLiga = scanner.nextInt();
 
-	        return new Liga(categoriaLiga, nombreLiga, nroFechaLiga, categoriaLiga, null, null);
+	        return new Liga(nombreLiga, categoriaLiga);
 	    }
 
 	/**
@@ -212,7 +188,7 @@ public class LogicaInputOutput {
 	 * @param dateString
 	 * @return Date con el formato adecuado
 	 */
-	private static Date parseDate(String dateString) {
+	public static Date parseDate(String dateString) {
 		try {
 			return new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
 		} catch (Exception e) {

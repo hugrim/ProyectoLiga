@@ -12,8 +12,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.superLiga.modelo.Jugador;
+import com.superLiga.modelo.Provincia;
 import com.superLiga.modelo.Service.ConexionBaseDatos;
 import com.superLiga.modelo.Service.ServiceGenerico;
+import com.superLiga.vista.LogicaInputOutput;
 
 /**
  * @author Hugo Grimanis 
@@ -101,11 +103,62 @@ public class JugadorServiceImpl implements ServiceGenerico<Jugador>{
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param dni
+	 * @return
+	 */
 	public Jugador consultarFullJugador(int dni) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = " SELECT * "
+				+ " FROM jugador "
+				+ " WHERE jugador.dni = ? ";
+		Jugador jugador = new Jugador();
+		try (Connection conexion = ConexionBaseDatos.obtenerConexion();
+				PreparedStatement statement = conexion.prepareStatement(query)){
+			statement.setInt(1, dni);	
+			ResultSet resultSet = statement.executeQuery();			
+			if(resultSet.next()) {
+				jugador.setApellidoNombre(resultSet.getString("apellidoNombre"));
+				
+				// Obtener la fecha de nacimiento como java.sql.Date
+	            Date sqlDate = resultSet.getDate("fechaNacimiento");
+	            
+	        	// Convertir de java.sql.Date a java.util.Date
+	            if (sqlDate != null) {
+	            	jugador.setFechaNacimiento(new java.util.Date(sqlDate.getTime())); // Convertir a java.util.Date
+	            }
+				
+	           
+	            jugador.setDni(resultSet.getInt("dni"));
+	            jugador.setSexo(resultSet.getString("sexo").charAt(0));
+	            jugador.setEdad(resultSet.getInt("edad"));
+	            jugador.setDomicilio(resultSet.getString("direccion"));
+	            
+	            Provincia provincia = LogicaInputOutput.obtenerProvinciaPorDescripcion(resultSet.getString("provincia"));
+		        if (provincia != null) {
+		        	jugador.setProvincia(provincia);
+		        }
+	            
+		        jugador.setCodigoPostal(resultSet.getString("codigoPostal"));
+		        jugador.setEmail(resultSet.getString("email"));
+		        jugador.setTelefono(resultSet.getLong("telefono"));
+		        jugador.setHinchaClub(resultSet.getString("hinchaClub"));		        
+	            jugador.setCategoria(resultSet.getInt("categoriaJugador"));
+	            jugador.setEquipoAsignado(resultSet.getString("equipoAsignado"));
+	            jugador.setNroCamiseta(resultSet.getInt("nroCamisetaJugador"));
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Error al buscar el Jugador: " + e.getMessage());
+		}
+		
+	    return jugador;
 	}
 	
+	/**
+	 * @param dni
+	 * @return Retorna verdadero si existe el Jugador buscado
+	 */
 	public boolean consultarJugadorPorDni(int dni) {
 
 		String query = " SELECT * "
@@ -125,6 +178,32 @@ public class JugadorServiceImpl implements ServiceGenerico<Jugador>{
 		return false;
 	}
 
+	
+	/**
+	 * @param dni
+	 * @return Retorna verdadero si existe el Jugador buscado
+	 */
+	public int consultarCategoriaJugadorPorDni(int dni) {
+
+		String query = " SELECT jugador.categoriaJugador "
+				+ " FROM jugador "
+				+ " WHERE jugador.dni = ? ";
+		try (Connection conexion = ConexionBaseDatos.obtenerConexion();
+				PreparedStatement statement = conexion.prepareStatement(query)){
+			statement.setInt(1, dni);	
+			ResultSet resultSet = statement.executeQuery();			
+			if(resultSet.next()) {
+				
+				int categoriaJugador = resultSet.getInt("categoriaJugador");
+				return categoriaJugador;
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Error al buscar el Jugador: " + e.getMessage());
+		}
+		return -1;
+	}
+	
 	@Override
 	public List<Jugador> listar() {
 		// TODO Auto-generated method stub
@@ -146,7 +225,7 @@ public class JugadorServiceImpl implements ServiceGenerico<Jugador>{
 			statement.setInt(3, dni);
             return (statement.executeUpdate() > 0);
 		} catch (SQLException e) {
-			System.err.println("Error al buscar el Jugador: " + e.getMessage());
+			System.err.println("Error al editar el Jugador: " + e.getMessage());
 			return false;
 		}		
 	}

@@ -3,8 +3,6 @@
  */
 package com.superLiga.modelo;
 
-import java.util.List;
-
 /**
  * @author Hugo Grimanis 
  * Legajo: VINF013133 
@@ -17,111 +15,126 @@ public class Liga {
 	private String nombreLiga;
 	private int nroFechaLiga;
 	private int categoriaLiga;
-	private List<Equipo> equipos;
-	private List<Partido> partidos;
+	private String equipos;
+	private int posicionEquipo;
+
 	
 	/**
-	 * @return the idLiga
+	 * @return  idLiga
 	 */
 	public int getIdLiga() {
 		return idLiga;
 	}
 
 	/**
-	 * @param idLiga the idLiga to set
+	 * @param idLiga 
 	 */
 	public void setIdLiga(int idLiga) {
 		this.idLiga = idLiga;
 	}
 
 	/**
-	 * @return the nombreLiga
+	 * @return nombreLiga
 	 */
 	public String getNombreLiga() {
 		return nombreLiga;
 	}
 
 	/**
-	 * @param nombreLiga the nombreLiga to set
+	 * @param nombreLiga 
 	 */
 	public void setNombreLiga(String nombreLiga) {
 		this.nombreLiga = nombreLiga;
 	}
 
 	/**
-	 * @return the nroFechaLiga
+	 * @return  nroFechaLiga
 	 */
 	public int getNroFechaLiga() {
 		return nroFechaLiga;
 	}
 
 	/**
-	 * @param nroFechaLiga the nroFechaLiga to set
+	 * @param nroFechaLiga 
 	 */
 	public void setNroFechaLiga(int nroFechaLiga) {
 		this.nroFechaLiga = nroFechaLiga;
 	}
 
 	/**
-	 * @return the categoriaLiga
+	 * @return  categoriaLiga
 	 */
 	public int getCategoriaLiga() {
 		return categoriaLiga;
 	}
 
 	/**
-	 * @param categoriaLiga the categoriaLiga to set
+	 * @param categoriaLiga 
 	 */
 	public void setCategoriaLiga(int categoriaLiga) {
 		this.categoriaLiga = categoriaLiga;
 	}
 
 	/**
-	 * @return the equipos
+	 * @return  equipos
 	 */
-	public List<Equipo> getEquipos() {
+	public String getEquipos() {
 		return equipos;
 	}
 
 	/**
-	 * @param equipos the equipos to set
+	 * @param equipos 
 	 */
-	public void setEquipos(List<Equipo> equipos) {
+	public void setEquipos(String equipos) {
 		this.equipos = equipos;
 	}
 
 	/**
-	 * @return the partidos
+	 * @return  posicionEquipo
 	 */
-	public List<Partido> getPartidos() {
-		return partidos;
+	public int getPosicionEquipo() {
+		return posicionEquipo;
 	}
 
 	/**
-	 * @param partidos the partidos to set
+	 * @param posicionEquipo 
 	 */
-	public void setPartidos(List<Partido> partidos) {
-		this.partidos = partidos;
+	public void setPosicionEquipo(int posicionEquipo) {
+		this.posicionEquipo = posicionEquipo;
 	}
 
 	/**
-	 * @param idLiga
 	 * @param nombreLiga
 	 * @param nroFechaLiga
 	 * @param categoriaLiga
 	 * @param equipos
-	 * @param partidos
+	 * @param posicionEquipo
 	 */
-	public Liga(int idLiga, String nombreLiga, int nroFechaLiga, int categoriaLiga, List<Equipo> equipos,
-			List<Partido> partidos) {
+	public Liga(String nombreLiga, int nroFechaLiga, int categoriaLiga, String equipos,
+			int posicionEquipo) {
 		super();
-		this.idLiga = idLiga;
 		this.nombreLiga = nombreLiga;
 		this.nroFechaLiga = nroFechaLiga;
 		this.categoriaLiga = categoriaLiga;
 		this.equipos = equipos;
-		this.partidos = partidos;
+		this.posicionEquipo = posicionEquipo;
 	}
 	
 	
+	/**
+	 * @param nombreLiga
+	 * @param categoriaLiga
+	 */
+	public Liga(String nombreLiga, int categoriaLiga) {
+		super();
+		this.nombreLiga = nombreLiga;
+		this.categoriaLiga = categoriaLiga;
+	}
+
+	/**
+	 * 
+	 */
+	public Liga() {
+		// TODO Auto-generated constructor stub
+	}
 }

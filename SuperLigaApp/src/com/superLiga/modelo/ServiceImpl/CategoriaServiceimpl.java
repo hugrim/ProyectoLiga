@@ -5,13 +5,13 @@ package com.superLiga.modelo.ServiceImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import com.superLiga.modelo.Categoria;
 import com.superLiga.modelo.Service.ConexionBaseDatos;
 import com.superLiga.modelo.Service.ServiceGenerico;
-import com.superLiga.vista.LogicaInputOutput;
 
 /**
  * @author Hugo Grimanis 
@@ -34,6 +34,36 @@ public class CategoriaServiceimpl implements ServiceGenerico<Categoria> {
 		} catch (SQLException e) {
 			System.err.println("Error al agregar la Categoria: " + e.getMessage());
 		}		
+	}
+	
+	public boolean consultarExisteCategoria (int categoria) {
+		String query = " SELECT * "
+				+ " FROM categoria "
+				+ " WHERE categoria.anioCategoria = ? ";
+		try (Connection conexion = ConexionBaseDatos.obtenerConexion();
+				PreparedStatement statement = conexion.prepareStatement(query)){
+			statement.setInt(1, categoria);	
+			ResultSet resultSet = statement.executeQuery();			
+			if(resultSet.next()) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			System.err.println("Error al buscar la Categoria: " + e.getMessage());
+		}
+		return false;
+	}
+	
+	public boolean eliminarPorCategoria(int categoria) {
+		String query = "DELETE FROM categoria WHERE anioCategoria = ?";
+		try (Connection conexion = ConexionBaseDatos.obtenerConexion();
+				PreparedStatement statement = conexion.prepareStatement(query)){
+			statement.setInt(1, categoria);
+            return statement.executeUpdate() > 0; 
+		} catch (SQLException e) {
+			System.err.println("Error al eliminar la Categoria : " + e.getMessage());
+			return false;
+		}	
 	}
 
 	@Override
